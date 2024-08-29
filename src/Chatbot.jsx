@@ -56,7 +56,7 @@ const Chatbot = () => {
       <h1 className="text-3xl font-semibold text-center pb-4 bg-slate-800 rounded text-white">
         Welcome to <span className='text-blue-400'>AI</span> Image Generator
       </h1>
-      <div className="flex flex-col overflow-y-auto h-[26.5rem] border-b border-gray-200 custom-scrollbar">
+      <div className="flex flex-col h-[77vh] overflow-y-auto border-b border-gray-200 custom-scrollbar">
         {messages.map((msg, index) => (
           <div
             key={index}
