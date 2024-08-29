@@ -52,7 +52,7 @@ const Chatbot = () => {
   }, [messages]);
 
   return (
-    <div className="w-[90%] h-[95vh] shadow-md rounded-lg">
+    <div className="w-[55%] h-[95vh] shadow-md rounded-lg">
       <h1 className="text-3xl font-semibold text-center pb-4 bg-slate-800 rounded text-white">
         Welcome to <span className='text-blue-400'>AI</span> Image Generator
       </h1>
