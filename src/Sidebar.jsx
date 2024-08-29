@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
 
 
-const Sidebar = ({ history, onSelectChat, onNewChat, disableNewChat  }) => {
-    useEffect(()=>{
-        console.log('history',history);
-    },[history])
+const Sidebar = ({ history, onSelectChat, onNewChat, disableNewChat, onDeleteChat }) => {
 
   return (
     <div className="w-96 h-full bg-gray-800 text-white p-4 overflow-y-auto custom-scrollbar">
@@ -18,13 +15,27 @@ const Sidebar = ({ history, onSelectChat, onNewChat, disableNewChat  }) => {
       <h2 className="text-lg font-semibold mb-4">Chat History</h2>
       <ul>
         {history.map((chat, index) => (
-          <li
-            key={index}
-            className="p-2 mb-2 bg-gray-700 rounded cursor-pointer hover:bg-gray-600"
-            onClick={() => onSelectChat(index)}
-          >
-            {chat}
-          </li>
+        //   <li
+        //     key={index}
+        //     className="p-2 mb-2 bg-gray-700 rounded cursor-pointer hover:bg-gray-600"
+        //     onClick={() => onSelectChat(index)}
+        //   >
+        //     {chat}
+        //   </li>
+        <li
+        key={index}
+        className="p-2 mb-2 bg-gray-700 rounded cursor-pointer hover:bg-gray-600 flex justify-between items-center"
+      >
+        <span onClick={() => onSelectChat(index)} className="flex-grow cursor-pointer">
+          {chat}
+        </span>
+        <button
+          className="bg-red-500 text-white px-2 py-1 rounded ml-2 hover:bg-red-700"
+          onClick={() => onDeleteChat(index)} 
+        >
+          X
+        </button>
+      </li>
         ))}
       </ul>
     </div>

@@ -1,17 +1,22 @@
-
-
-//working with side bar 
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 const Chatbot = ({ selectedChat, history, updateChatHistory }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+    const [loading, setLoading] = useState(false); 
+    const messagesEndRef = useRef(null); 
+
+
+      useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
 
   useEffect(() => {
     if (selectedChat !== null && history[selectedChat]) {
-      setMessages(history[selectedChat]); // Load selected chat history
+      setMessages(history[selectedChat]);
     }
   }, [selectedChat, history]);
 
@@ -20,8 +25,9 @@ const Chatbot = ({ selectedChat, history, updateChatHistory }) => {
 
     const newMessage = { text: input, type: 'user' };
     const updatedMessages = [...messages, newMessage];
-    setMessages(updatedMessages); // Update local messages state
-    updateChatHistory(updatedMessages); // Save to history
+    setMessages(updatedMessages);
+    updateChatHistory(updatedMessages);
+    setLoading(true);
 
     try {
       const response = await axios.post(
@@ -39,13 +45,15 @@ const Chatbot = ({ selectedChat, history, updateChatHistory }) => {
       const botMessage = { type: 'bot', imageUrl };
       const newMessagesWithBot = [...updatedMessages, botMessage];
       setMessages(newMessagesWithBot);
-      updateChatHistory(newMessagesWithBot); // Save to history
+      updateChatHistory(newMessagesWithBot);
     } catch (error) {
       console.error('Error generating image:', error);
       const errorMessage = { type: 'bot', text: 'Failed to generate image. Please try again.' };
       const newMessagesWithError = [...updatedMessages, errorMessage];
       setMessages(newMessagesWithError);
-      updateChatHistory(newMessagesWithError); // Save to history
+      updateChatHistory(newMessagesWithError);
+    }finally{
+        setLoading(false);
     }
 
     setInput('');
@@ -73,6 +81,13 @@ const Chatbot = ({ selectedChat, history, updateChatHistory }) => {
             )}
           </div>
         ))}
+        <div ref={messagesEndRef} />
+           {loading && (
+     <div className="flex justify-start items-center p-24">
+       <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-8 w-8"></div>
+      </div>
+        )}
+        
       </div>
       <div className="flex items-center space-x-2 px-4">
         <input
