@@ -52,11 +52,11 @@ const Chatbot = () => {
   }, [messages]);
 
   return (
-    <div className="w-[55%] h-[95vh] shadow-md rounded-lg">
+    <div className="w-[55%] bg-slate-300 shadow-md rounded-lg">
       <h1 className="text-3xl font-semibold text-center pb-4 bg-slate-800 rounded text-white">
-        Welcome to <span className='text-blue-400'>AI</span> Image Generator
+        InsightAI Graph
       </h1>
-      <div className="flex flex-col h-[77vh] overflow-y-auto border-b border-gray-200 custom-scrollbar">
+      <div className="flex flex-col h-[80vh] overflow-y-auto border-b border-gray-200 custom-scrollbar">
         {messages.map((msg, index) => (
           <div
             key={index}
@@ -94,7 +94,7 @@ const Chatbot = () => {
           className="bg-slate-800 text-white px-4 py-2 rounded-lg hover:bg-slate-600"
           disabled={loading}
         >
-          {loading ? 'Loading...' : 'Send'}
+          Send
         </button>
       </div>
     </div>
