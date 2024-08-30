@@ -15,13 +15,6 @@ const Sidebar = ({ history, onSelectChat, onNewChat, disableNewChat, onDeleteCha
       <h2 className="text-lg font-semibold mb-4">Chat History</h2>
       <ul>
         {history.map((chat, index) => (
-        //   <li
-        //     key={index}
-        //     className="p-2 mb-2 bg-gray-700 rounded cursor-pointer hover:bg-gray-600"
-        //     onClick={() => onSelectChat(index)}
-        //   >
-        //     {chat}
-        //   </li>
         <li
         key={index}
         className="p-2 mb-2 bg-gray-700 rounded cursor-pointer hover:bg-gray-600 flex justify-between items-center"
@@ -30,7 +23,7 @@ const Sidebar = ({ history, onSelectChat, onNewChat, disableNewChat, onDeleteCha
           {chat}
         </span>
         <button
-          className="bg-red-500 text-white px-2 py-1 rounded ml-2 hover:bg-red-700"
+          className="bg-slate-400 text-white px-2 py-1 rounded ml-2 hover:bg-slate-700"
           onClick={() => onDeleteChat(index)} 
         >
           X

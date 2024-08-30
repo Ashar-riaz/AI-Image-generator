@@ -31,7 +31,7 @@ const Chatbot = ({ selectedChat, history, updateChatHistory }) => {
 
     try {
       const response = await axios.post(
-        'https://277f-116-90-119-33.ngrok-free.app/generate_chart',
+        `${import.meta.env.VITE_API_URL}generate_chart`,
         { query: input },
         {
           headers: {

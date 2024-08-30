@@ -25,11 +25,9 @@ function App() {
   };
 
   const handleDeleteChat = (index) => {
-    const updatedHistory = history.filter((_, i) => i !== index);
-    setHistory(updatedHistory);
+    history.splice(index, 1);
+    setHistory([...history]);
     if (selectedChat === index) {
-      setSelectedChat(null);
-    } else if (selectedChat > index) {
       setSelectedChat(selectedChat - 1);
     }
   };
@@ -39,7 +37,7 @@ function App() {
   return (
     <div className="h-[100vh] flex">
       <Sidebar
-        history={history.map((chat, index) => `Chat ${index + 1}`)}
+        history={history.map((chat, index) => `chat ${index}`)}
         onSelectChat={handleSelectChat}
         onNewChat={handleNewChat}
         disableNewChat={isCurrentChatEmpty}
