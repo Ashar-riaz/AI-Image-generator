@@ -73,11 +73,11 @@ const Chatbot = ({ selectedChat, history, updateChatHistory }) => {
             }`}
           >
             {msg.type === 'user' ? (
-              <p className="bg-slate-800 text-white p-4 rounded-lg max-w-xs">{msg.text}</p>
+              <p className="bg-slate-800 text-white p-4 rounded-lg max-w-lg">{msg.text}</p>
             ) : msg.imageUrl ? (
-              <img src={msg.imageUrl} alt="Generated" className="max-w-xs rounded-lg shadow" />
+              <img src={msg.imageUrl} alt="Generated" className="max-w-lg rounded-lg shadow" />
             ) : (
-              <p className="bg-gray-200 p-4 rounded-lg max-w-xs">{msg.text}</p>
+              <p className="bg-gray-200 p-4 rounded-lg max-w-lg">{msg.text}</p>
             )}
           </div>
         ))}
@@ -109,4 +109,3 @@ const Chatbot = ({ selectedChat, history, updateChatHistory }) => {
 };
 
 export default Chatbot;
-

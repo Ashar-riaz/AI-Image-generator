@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 const Sidebar = ({ history, onSelectChat, onNewChat, disableNewChat, onDeleteChat }) => {
 
   return (
-    <div className="w-96 h-full bg-gray-800 text-white p-4 overflow-y-auto custom-scrollbar">
+    <div className="w-[30vw] h-full bg-gray-800 text-white p-4 overflow-y-auto custom-scrollbar">
               <button
         onClick={onNewChat}
         className="mt-4 bg-slate-400 text-white px-4 py-2 rounded-lg hover:bg-slate-700"
