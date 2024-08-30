@@ -64,7 +64,7 @@ const Chatbot = ({ selectedChat, history, updateChatHistory }) => {
       <h1 className="text-3xl font-semibold text-center pb-4 bg-slate-800 text-white">
         InsightAI Graph
       </h1>
-      <div className="flex flex-col overflow-y-auto h-[82vh] border-b custom-scrollbar">
+      <div className="flex flex-col overflow-y-auto h-[89vh] border-b custom-scrollbar">
         {messages.map((msg, index) => (
           <div
             key={index}
